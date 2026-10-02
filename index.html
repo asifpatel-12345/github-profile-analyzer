@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GitHub Profile Analyzer</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Chart.js CDN for visual analytics -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>GitHub Profile Analyzer</h1>
+      <p>Search any GitHub user to view profile analytics and top repositories.</p>
+    </header>
+
+    <div class="search-box">
+      <input type="text" id="username-input" placeholder="Enter GitHub Username (e.g., torvalds)" />
+      <button id="search-btn">Analyze</button>
+    </div>
+
+    <div id="error-msg" class="error hidden"></div>
+
+    <main id="dashboard" class="dashboard hidden">
+      <!-- Profile Header Card -->
+      <section class="card profile-card">
+        <img id="avatar" src="" alt="Profile Picture" />
+        <div class="profile-details">
+          <h2 id="user-name">User Name</h2>
+          <p id="user-bio" class="bio">User Bio</p>
+          <div class="stats-row">
+            <span class="badge">Repos: <strong id="stat-repos">0</strong></span>
+            <span class="badge">Followers: <strong id="stat-followers">0</strong></span>
+            <span class="badge">Following: <strong id="stat-following">0</strong></span>
+          </div>
+          <a id="profile-link" href="#" target="_blank" rel="noopener noreferrer" class="btn-link">View on GitHub ↗</a>
+        </div>
+      </section>
+
+      <!-- Analytics Charts Section -->
+      <section class="card chart-card">
+        <h3>Top Languages Breakdown</h3>
+        <div class="chart-wrapper">
+          <canvas id="language-chart"></canvas>
+        </div>
+      </section>
+
+      <!-- Repositories List Section -->
+      <section class="repos-section">
+        <h3>Top Repositories</h3>
+        <div id="repos-container" class="repos-grid"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
